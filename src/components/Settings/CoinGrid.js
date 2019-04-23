@@ -1,0 +1,42 @@
+import React from 'react';
+import styled, {css} from 'styled-components';
+import {AppContext} from '../AppProvider';
+import {SelectTile} from '../Shared/Tile';
+import CoinTile from './CoinTile';
+
+// below grid repeats and divides screen
+export const CoinGridStyled = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 15px;
+  margin-top: 30px;
+`
+
+// updates coinList based on filter input if present
+function displayGeneralCoins(coinList, filteredCoins) {
+  return (filteredCoins && Object.keys(filteredCoins)) || 
+    Object.keys(coinList).slice(0,100)
+}
+
+// return favorites
+function displayCoins(coinList, topSection, favorites, filteredCoins) {
+  return topSection ? favorites : displayGeneralCoins(coinList, filteredCoins);
+}; 
+
+// passing topSection so that we can add a function to delete the coin for the list
+// passing topSection indicator to map styles
+const CoinGrid = ({topSection}) => {
+  return (
+    <AppContext.Consumer>
+      {({coinList, favorites, filteredCoins}) => (
+        <CoinGridStyled>
+          {displayCoins(coinList, topSection, favorites, filteredCoins).map(coinKey => (
+            <CoinTile topSection={topSection} coinKey={coinKey} key={coinKey}/>
+          ))}
+        </CoinGridStyled>
+      )}
+    </AppContext.Consumer>
+    );
+};
+
+export default CoinGrid;
