@@ -4,7 +4,7 @@ export function newHighChartConfig(historicalPricePoints) {
       text: 'PRICE HISTORY'
     },
     subtitle: {
-      text: 'Days(day end closing data), Weeks(week end closing data), Months(month end closing data)'
+      text: 'Days(closing data for 30 days), Weeks(closing data for 3 weeks), Months(closing data for 6 months)'
     },
     yAxis: {
       title: {

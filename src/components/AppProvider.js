@@ -1,35 +1,30 @@
 import React from 'react';
 import _ from 'lodash';
 import moment from 'moment';
+
 const cc = require('cryptocompare');
 // total number of user coins a user can favorite
 const MAX_FAVORITES = 10;
 // total number of months to grab historical coin price data
-const TIME_SPAN = 24
-const TIME_SPANS = {
-  'days' : 30,
-  'weeks': 24,
-  'months': 6
-  }
+const TIME_SPANS = {'days' : 30, 'weeks': 3, 'months': 6}
 
 export const AppContext = React.createContext();
-
 
 // can spread in provider to create several redefaults to update information in one shot
 class AppProvider extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      page: 'settings',
-      favorites: ['BTC'],
+      page: 'dashboard',
       setPage: this.setPage,
       ...this.savedSettings(),
+      favorites: ['BTC'],
+      inFavorites: this.inFavorites,
+      setFavorite: this.setFavorite,
       confirmFavorites: this.confirmFavorites,
       setFilteredCoins: this.setFilteredCoins,
       addCoin: this.addCoin,
       removeCoin: this.removeCoin,
-      inFavorites: this.inFavorites,
-      setFavorite: this.setFavorite,
       timeInterval: 'weeks',
       updateChartTimeSpan: this.updateChartTimeSpan
     };
@@ -41,10 +36,32 @@ class AppProvider extends React.Component {
     this.getCoinHistoricalData();
   };
 
+  getCoins = async () => {
+    const resp = await cc.coinList();
+    const coinList = resp.Data;
+    this.setState({coinList});
+  };
+
+  // returns historical coin information from crypto-compare once all items have resolved
+  _getCoinHistoricalData = () => {
+    let historicaData = [];
+    for (let units = TIME_SPANS[[this.state.timeInterval]]; units > 0; units--) {
+      historicaData.push(
+        cc.priceHistorical(
+          this.state.currentFavorite,
+          ['USD'],
+          moment().subtract({[this.state.timeInterval]: units}).toDate()
+        )
+      );
+    }
+    return Promise.all(historicaData);
+  }
+
+  // returns formatted  historical price data for use in highchart as sets of date:price items
   getCoinHistoricalData = async () => {
     if(this.state.initialVisit) return;
 
-    let coinData = await this.fetchCoinHistory();
+    let coinData = await this._getCoinHistoricalData();
     let historicalPricePoints = [
       {
         name: this.state.currentFavorite, 
@@ -58,49 +75,8 @@ class AppProvider extends React.Component {
     this.setState({historicalPricePoints});
   }
 
-  // explain
-  fetchCoinHistory = () => {
-    let historicaData = [];
-    for (let units = TIME_SPANS[[this.state.timeInterval]]; units > 0; units--) {
-      historicaData.push(
-        cc.priceHistorical(
-          this.state.currentFavorite,
-          ['USD'],
-          moment().subtract({[this.state.timeInterval]: units}).toDate()
-        )
-      )
-    }
-    return Promise.all(historicaData)
-  }
-
-  addCoin = key => {
-    let favorites = [...this.state.favorites];
-    if(favorites.length < MAX_FAVORITES) {
-      favorites.push(key);
-      this.setState({favorites});
-    };
-  };
-
-  removeCoin = key => {
-    let favorites = [...this.state.favorites];
-    this.setState({favorites: _.pull(favorites, key)})
-  };
-
-  getCoins = async () => {
-    const resp = await cc.coinList();
-    const coinList = resp.Data;
-    this.setState({coinList});
-  };
-
-  inFavorites = key => _.includes(this.state.favorites, key);
-
-  setPage = page => this.setState({page});
-
-  // grabbing price data from cryptoCompare api if not user's first visit
-  getPrices = async () => {
-    // exiting function with empty return if initial user visit
-    // if(this.state.initialVisit) return;
-
+  // querying coin information from crypto-compare based on selected time span
+  getPriceData = async () => {
     let priceInfo = [];
     for(let i = 0; i < this.state.favorites.length; i++) {
       try {
@@ -110,16 +86,17 @@ class AppProvider extends React.Component {
         console.warn('Could not get price: ', err);
       }
     }
-    console.log('here is price data', priceInfo);
     return priceInfo;
   }
-
+    
   // updates state with prices of favorites coin
   setPrices = async () => {
-    let prices = await this.getPrices();
+    if(this.state.firstVisit) return;
+    let prices = await this.getPriceData();
     this.setState({prices:prices});
   }
-
+  
+  // updates current favorite coin and parses existing local storage to update new data values
   setFavorite = symbol => {
     // updating current favorite
     this.setState({
@@ -129,10 +106,31 @@ class AppProvider extends React.Component {
 
     localStorage.setItem(
       'cryptoDash', JSON.stringify({
-      ...JSON.parse(localStorage.getItem('cryptoDash')), currentFavorite: symbol
-      })
-    );
+      ...JSON.parse(localStorage.getItem('cryptoDash')), 
+      currentFavorite: symbol
+      }));
   }
+  
+  // adds coin to favorites list up to a max of MAX_FAVORITES
+  addCoin = key => {
+    let favorites = [...this.state.favorites];
+    if(favorites.length < MAX_FAVORITES) {
+      favorites.push(key);
+      this.setState({favorites});
+    };
+  };
+
+  // removes coin from favorite to minimum of 1 coin in favorites list
+  removeCoin = key => {
+    if(this.state.favorites.length === 1) return;
+    
+    let favorites = [...this.state.favorites];
+    this.setState({favorites: _.pull(favorites, key)})
+  };
+
+  inFavorites = key => _.includes(this.state.favorites, key);
+
+  setPage = page => this.setState({page});
 
   /** 
    * updating favorite list with most recent additions or deletions and 
@@ -147,7 +145,7 @@ class AppProvider extends React.Component {
       price: null,
       historicalPricePoints: null
     }, () => {
-        this.getPrices();
+        this.setPrices();
         this.getCoinHistoricalData();
       });
     localStorage.setItem('cryptoDash', JSON.stringify({
@@ -160,7 +158,7 @@ class AppProvider extends React.Component {
   savedSettings() {
     let cryptoDashData = JSON.parse(localStorage.getItem('cryptoDash'));
     if(!cryptoDashData) {
-      return {page : 'settings', initialVisit: true, currentFavorite: 'BTC'}
+      return {page : 'settings', initialVisit: true}
     }
     let {favorites, currentFavorite} = cryptoDashData;
     return {favorites, currentFavorite};
@@ -171,11 +169,7 @@ class AppProvider extends React.Component {
   }
 
   updateChartTimeSpan = value => {
-    this.setState({
-      timeInterval: value,
-      historicalPricePoints: null}, 
-      this.getCoinHistoricalData)
-  }
+    this.setState({timeInterval: value, historicalPricePoints: null}, this.getCoinHistoricalData);}
 
   // render function acts as wrapper passing state down to children
   render() {
@@ -183,7 +177,7 @@ class AppProvider extends React.Component {
       <AppContext.Provider value={this.state}>
        {this.props.children}
       </AppContext.Provider>
-    )
+    );
   }
 };
 

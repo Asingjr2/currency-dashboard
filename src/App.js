@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
 import AppLayout from './components/AppLayout';
-import Header from './components/Header';
 import AppProvider from './components/AppProvider';
-import WelcomeMessage from './components/Settings/WelcomeMessage';
-import Settings from './components/Settings';
-import Dashboard from './components/Dashboard';
 import Content from './components/Shared/Content';
+import Dashboard from './components/Dashboard';
+import Header from './components/Header';
+import Settings from './components/Settings';
 
 
 class App extends Component {

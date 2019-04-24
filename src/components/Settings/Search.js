@@ -37,8 +37,8 @@ const ResetSearchListButton= styled.button`
  * handleFilter grabs all coins from site than filters coins 
  * down based on search criteria using lodash filtering
  */
-const handleFilter = _.debounce(
-  (inputValue, coinList, setFilteredCoins) => {
+const handleFilter = _.debounce((inputValue, coinList, setFilteredCoins) => {
+    // getting coin symbols
     let allSymbols = Object.keys(coinList);
     let coinNames = allSymbols.map(symbol => coinList[symbol].CoinName);
     let allStringsForFilter = allSymbols.concat(coinNames);

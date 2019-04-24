@@ -5,6 +5,7 @@ import CoinHeaderGrid from './CoinHeaderGrid';
 import CoinImage from '../Shared/CoinImage';
 
 
+// conditional logic to support addition or removal of coins to favorites list
 function handleCoinClick(topSection, coinKey, addCoin, removeCoin) {
   return topSection ? () => {
     removeCoin(coinKey)

@@ -34,9 +34,10 @@ function ControlButton({name}) {
     <AppContext.Consumer>
       {({initialVisit, page, setPage}) => (
         <ControlButtonElement 
-        hidden={initialVisit && name === 'dashboard'}
         active={page===name}
-        onClick={() => setPage(name)}>
+        onClick={() => setPage(name)}
+        hidden={initialVisit && name === 'dashboard'}
+        >
           {Capitalize(name)}
         </ControlButtonElement>
         )}
@@ -44,16 +45,13 @@ function ControlButton({name}) {
   )
 }
 
-class Header extends React.Component {
-  render() {
-    return (
-      <Bar>
-        <Logo>CryptoDash</Logo>
-        <div></div>
-        <ControlButton active name="dashboard"/> 
-        <ControlButton name="settings" />
-      </Bar>
-  )
-}};
+const Header = () => (
+  <Bar>
+    <Logo>CryptoDashboard</Logo>
+    <div />
+    <ControlButton active name="dashboard"/> 
+    <ControlButton name="settings" />
+  </Bar>
+  );
 
 export default Header;

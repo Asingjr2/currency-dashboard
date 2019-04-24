@@ -3,7 +3,7 @@ import styled, {css} from 'styled-components';
 import {AppContext} from '../AppProvider';
 import {SelectTile} from '../Shared/Tile';
 import {CoinHeaderStyled} from '../Settings/CoinHeaderGrid';
-import {fontSize2, fontSizeBig, greenBoxShadow} from '../Shared/Styles';
+import {fontSize3, fontSizeBig, greenBoxShadow} from '../Shared/Styles';
 import {JustifyLeft, JustifyRight, formatNum} from '../Shared/Helpers';
 
 const PercentColorStyled = styled.div`
@@ -15,20 +15,11 @@ const PercentColorStyled = styled.div`
 const CoinPriceStyled = styled.div`
   ${fontSizeBig}
 `
-function PercentChangeComponent({coinData}) {
-  return (
-    <JustifyRight>
-      <PercentColorStyled red={coinData.CHANGEPCT24HOUR < 0}>
-        {formatNum(coinData.CHANGEPCT24HOUR)} %
-      </PercentColorStyled>
-    </JustifyRight>
-  );
-}
 
 // checking for compact prop to decrease size of font and display as grid
 const PriceTileStyled = styled(SelectTile)`
   ${props => props.compact && css`
-  ${fontSize2}
+  ${fontSize3}
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(3, 1fr);
@@ -40,16 +31,28 @@ const PriceTileStyled = styled(SelectTile)`
   `}
 `
 
+function PercentChangeComponent({coinData}) {
+  return (
+    <JustifyRight>
+      <PercentColorStyled red={coinData.CHANGEPCT24HOUR < 0}>
+        {formatNum(coinData.CHANGEPCT24HOUR)} %
+      </PercentColorStyled>
+    </JustifyRight>
+  );
+}
+
 function PriceTile({coin, coinData, currentFavorite, setFavorite}){
   return (
     <PriceTileStyled 
-      currentFavorite={currentFavorite}
       onClick={setFavorite}
+      currentFavorite={currentFavorite}
       >
       <CoinHeaderStyled>
         <div>{coin}</div>
         <PercentChangeComponent coinData={coinData} />
-        <CoinPriceStyled>${formatNum(coinData.PRICE)}</CoinPriceStyled>
+        <CoinPriceStyled>
+          ${formatNum(coinData.PRICE)}
+        </CoinPriceStyled>
       </CoinHeaderStyled>
     </PriceTileStyled>
   );
@@ -60,8 +63,8 @@ function PriceTileCompact({coin, coinData, currentFavorite, setFavorite}){
   return (
     <PriceTileStyled 
       compact 
-      currentFavorite={currentFavorite}
       onClick={setFavorite}
+      currentFavorite={currentFavorite}
       >
       <JustifyLeft>{coin}</JustifyLeft>
       <PercentChangeComponent coinData={coinData} />
@@ -70,10 +73,7 @@ function PriceTileCompact({coin, coinData, currentFavorite, setFavorite}){
   );
 }
 
-/** 
- * conditional rendering of tile classes based on number in favorites list
- * and adding currentFavorite prop coin matches state currentFavorite
- */ 
+/** conditional rendering of tile classes based on number in favorites list */ 
 const PriceTileLayout = ({price, index}) => {
   let coin = Object.keys(price)[0];
   let coinData = price[coin]['USD'];

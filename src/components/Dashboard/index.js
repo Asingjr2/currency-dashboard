@@ -12,18 +12,14 @@ const ChartGrid = styled.div`
   grid-template-columns: 1fr 3fr;
 `
 
-const DashboardPage = () => {
-  return (
-    <div>
-      <Page name="dashboard">
-       <PriceGrid />
-       <ChartGrid>
-        <CoinHightlight />
-        <CoinPriceChart />
-      </ChartGrid>
-      </Page>
-    </div>
-  );
-};
+const DashboardPage = () => (
+  <Page name="dashboard">
+    <PriceGrid />
+    <ChartGrid>
+    <CoinHightlight />
+    <CoinPriceChart />
+    </ChartGrid>
+  </Page>
+);
 
 export default DashboardPage;

@@ -1,7 +1,6 @@
 import React from 'react';
-import styled, {css} from 'styled-components';
+import styled from 'styled-components';
 import {AppContext} from '../AppProvider';
-import {SelectTile} from '../Shared/Tile';
 import CoinTile from './CoinTile';
 
 // below grid repeats and divides screen
@@ -13,14 +12,14 @@ export const CoinGridStyled = styled.div`
 `
 
 // updates coinList based on filter input if present
-function displayGeneralCoins(coinList, filteredCoins) {
+function displayLowerCoins(coinList, filteredCoins) {
   return (filteredCoins && Object.keys(filteredCoins)) || 
     Object.keys(coinList).slice(0,100)
 }
 
 // return favorites
 function displayCoins(coinList, topSection, favorites, filteredCoins) {
-  return topSection ? favorites : displayGeneralCoins(coinList, filteredCoins);
+  return topSection ? favorites : displayLowerCoins(coinList, filteredCoins);
 }; 
 
 // passing topSection so that we can add a function to delete the coin for the list
