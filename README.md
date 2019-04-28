@@ -5,7 +5,7 @@ Currency display app that allows users to check price of favorites and display u
 ***
 
 ### Setup
-```bash
+```
 To run program simply *npm run start* at root of folder.
 ```
 ***
