@@ -13,7 +13,7 @@ To run program simply *npm run start* at root of folder.
 ###  Libraries and Documentation
 ```
 Key  libraries and associated documentation can be found below at:
- * [Styled-Components]:www.npmjs.com/package/styled-components]
+ * :sparkles: Styled-Components  (www.npmjs.com/package/styled-components)
  * [Cryptocompare][www.npmjs.com/package/cryptocompare]
  * (React-HighCharts)[https://www.npmjs.com/package/react-highcharts]
 ```
