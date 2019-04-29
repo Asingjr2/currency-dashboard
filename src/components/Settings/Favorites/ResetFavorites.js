@@ -1,15 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 import {AppContext} from '../../AppProvider';
-import {fontSize1, redBoxShadow, color3} from '../../Shared/Styles';
+import {fontSize2, redBoxShadow, color3} from '../../Shared/Styles';
 
 // standard colors used. 
 const ButtonStyled = styled.div`
   margin: 20px;
-  color: ${color3};
+  color: white;
+  background: firebrick;
+  border: 3px solid white;
+  border-radius: 20px;
   padding: 10px;
   cursor: pointer;
-  ${fontSize1};
+  ${fontSize2};
   &:hover {
     ${redBoxShadow}
   }

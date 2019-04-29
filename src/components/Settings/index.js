@@ -9,7 +9,7 @@ import Search from './Search';
 const SettingsPage = () => {
   return (
     <div>
-      <Page name="settings">
+      <Page name="coinlist">
         <WelcomeMessage/>
           <CoinGrid topSection />
           <Favorites />

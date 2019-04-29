@@ -1,15 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 import {AppContext} from '../../AppProvider';
-import {fontSize1, greenBoxShadow, color3} from '../../Shared/Styles';
+import {fontSize2, greenBoxShadow, color3} from '../../Shared/Styles';
 
 // standard colors used. 
 const ButtonStyled = styled.div`
   margin: 20px;
-  color: ${color3};
+  color: white;
   padding: 10px;
+  border: 3px solid white;
+  border-radius: 20px;
+  background:seagreen;
   cursor: pointer;
-  ${fontSize1};
+  ${fontSize2};
   &:hover {
     ${greenBoxShadow}
   }

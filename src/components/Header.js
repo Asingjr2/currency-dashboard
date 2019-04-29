@@ -50,7 +50,7 @@ const Header = () => (
     <Logo>CurrencyDashboard</Logo>
     <div />
     <ControlButton active name="dashboard"/> 
-    <ControlButton name="settings" />
+    <ControlButton name="coinlist" />
   </Bar>
   );
 

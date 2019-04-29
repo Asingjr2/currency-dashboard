@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(2, 2, 80);
+  background-image: radial-gradient(rgb(104, 104, 187), rgb(2, 2, 80));
   color: white;
   font-family: 'Heebo', sans-serif;
 }
