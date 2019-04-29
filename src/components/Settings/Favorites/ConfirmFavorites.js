@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import {AppContext} from '../AppProvider';
-import {fontSize1, greenBoxShadow, color3} from '../Shared/Styles';
+import {AppContext} from '../../AppProvider';
+import {fontSize1, greenBoxShadow, color3} from '../../Shared/Styles';
 
 // standard colors used. 
 const ButtonStyled = styled.div`
@@ -22,7 +22,7 @@ const CenterDiv = styled.div`
  
 // created functional component using styled components
 // grabbing function for confirmFavorites out of context through the consumer
-const ConfirmChoice = () => {
+const ConfirmFavorites = () => {
   return (
     <AppContext.Consumer>
       {({confirmFavorites}) => (
@@ -36,4 +36,4 @@ const ConfirmChoice = () => {
   );
 };
 
-export default ConfirmChoice;
+export default ConfirmFavorites;

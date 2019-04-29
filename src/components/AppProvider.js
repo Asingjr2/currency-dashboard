@@ -22,6 +22,7 @@ class AppProvider extends React.Component {
       inFavorites: this.inFavorites,
       setFavorite: this.setFavorite,
       confirmFavorites: this.confirmFavorites,
+      resetFavorites: this.resetFavorites,
       setFilteredCoins: this.setFilteredCoins,
       addCoin: this.addCoin,
       removeCoin: this.removeCoin,
@@ -153,6 +154,12 @@ class AppProvider extends React.Component {
       currentFavorite: currentFavorite})
       );
     };
+
+  // resets user's favorites list to default state (e.g. BTC only)
+  resetFavorites = () => {
+    const defaultFavorites = ['BTC']
+    this.setState({ favorites: defaultFavorites});
+  }
 
   // grabbing localStorage data to populate favorties or using default
   savedSettings() {

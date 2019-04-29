@@ -1,6 +1,6 @@
 import React from 'react';
 import WelcomeMessage from './WelcomeMessage';
-import ConfirmChoice from './ConfirmChoice';
+import Favorites from './Favorites';
 import Page from '../Shared/Page';
 import CoinGrid from './CoinGrid';
 import Search from './Search';
@@ -12,7 +12,7 @@ const SettingsPage = () => {
       <Page name="settings">
         <WelcomeMessage/>
           <CoinGrid topSection />
-          <ConfirmChoice />
+          <Favorites />
           <Search />
           <CoinGrid />
       </Page>

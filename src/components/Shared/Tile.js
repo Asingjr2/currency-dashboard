@@ -28,6 +28,7 @@ export const DisableTile = styled(Tile)`
 export const ViewOnlyTile = styled(Tile)`
   &:hover{
   cursor: pointer;
+  pointer-events: none;
   ${yellowBoxShadow}
 }`
 

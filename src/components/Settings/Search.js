@@ -5,7 +5,11 @@ import fuzzy from 'fuzzy';
 import {AppContext} from '../AppProvider';
 import {backgroundColor2, fontSize2} from '../Shared/Styles';
 
-const SearchGrid = styled.div`
+/** 
+ * used to ensure even spacing between elements and
+ * exported for use to confirm or reset favorites
+ */ 
+export const SearchGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 `
@@ -32,12 +36,6 @@ const ResetSearchListButton= styled.button`
   margin: 0 1em;
   padding: 0.25em 1em;
 `
-
-{/* <SearchInput onKeyUp={(event) =>
-  filterCoins(event, setFilteredCoins, coinList)} />
-<ResetSearchListButton onClick={() => setFilteredCoins(null)}>
-  RESET COIN LIST
-</ResetSearchListButton> */}
 
 /**
  * handleFilter grabs all coins from site than filters coins 
@@ -69,12 +67,12 @@ function filterCoins(event, setFilteredCoins, coinList) {
   handleFilter(inputValue, coinList, setFilteredCoins);
 }
 
-const Search = () => {
+export const Search = () => {
   return (
     <AppContext.Consumer>
       {({setFilteredCoins, coinList}) => 
         <SearchGrid>
-        <div class="ui left corner labeled input">
+        <div class="ui left corner labeled input large">
           <input type="text" 
             placeholder="search coins" 
             onKeyUp={(event) => filterCoins(event, setFilteredCoins, coinList)}
@@ -87,7 +85,7 @@ const Search = () => {
           <div></div>
           <div></div>
 
-          <div class="ui corner labeled input">
+          <div class="ui corner labeled input large">
             <input 
               type="text" 
               value="Reset List"
