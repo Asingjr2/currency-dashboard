@@ -1,2 +1,3 @@
 add reset favorites to set favorites back to just BTC
 ensure that delete does nothing if only one coin
+

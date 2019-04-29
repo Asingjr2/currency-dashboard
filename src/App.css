@@ -3,3 +3,33 @@ body {
   color: white;
   font-family: 'Heebo', sans-serif;
 }
+
+.vid-text{
+  margin-left: 10px;
+}
+
+.vid-detail{
+  border: 4px double white;
+  margin-top: 50px;
+  border-radius: 5px;
+}
+
+.vid-search {
+  border: 4px double white;
+}
+
+.video-item {
+  display: flex !important;
+  align-items: center !important;
+  cursor: pointer;
+  color: black;
+  margin-top: 10px;
+}
+
+.video-item.item img {
+  max-width: 150px;
+}
+
+.border-bottom {
+  border: 5px double white;
+}

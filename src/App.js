@@ -6,6 +6,7 @@ import Content from './components/Shared/Content';
 import Dashboard from './components/Dashboard';
 import Header from './components/Header';
 import Settings from './components/Settings';
+import Vidoes from './components/Youtube';
 
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
           <Content>
             <Settings/>
             <Dashboard />  
+            <Vidoes />
           </Content>
         </AppProvider>
       </AppLayout>

@@ -8,7 +8,7 @@ const Logo = styled.div`
 const Bar = styled.div `
   display: grid;
   margin-bottom: 30px;
-  grid-template-columns: 2fr auto 1fr 1fr;
+  grid-template-columns: 2fr auto 1fr 1fr 1fr;
 `
 
 // need to review the passing of the props information
@@ -51,6 +51,7 @@ const Header = () => (
     <div />
     <ControlButton active name="dashboard"/> 
     <ControlButton name="coinlist" />
+    <ControlButton name="videos" />
   </Bar>
   );
 

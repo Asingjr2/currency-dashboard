@@ -1,12 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
-import _ from 'lodash';
-import fuzzy from 'fuzzy';
 import {AppContext} from '../../AppProvider';
 import ConfirmFavorites from './ConfirmFavorites';
 import ResetFavorites from './ResetFavorites';
 import {SearchGrid} from '../Search';
-import {backgroundColor2, fontSize2} from '../../Shared/Styles';
 
 const Favorites = () => {
   return (

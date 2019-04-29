@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import _ from 'lodash';
 import fuzzy from 'fuzzy';
 import {AppContext} from '../AppProvider';
-import {backgroundColor2, fontSize2} from '../Shared/Styles';
 
 /** 
  * used to ensure even spacing between elements and
@@ -12,29 +11,6 @@ import {backgroundColor2, fontSize2} from '../Shared/Styles';
 export const SearchGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-`
-
-const SearchInput = styled.input`
-  ${backgroundColor2}
-  ${fontSize2}
-  color: goldenrod;
-  border: 3px solid;
-  background-color: white;
-  color: black;
-  height:  40px;
-  place-self: center right;
-`
-
-const ResetSearchListButton= styled.button`
-  height:  40px;
-  min-width: 100px;
-  color: black;
-  place-self: center right;
-  border-radius: 3px;
-  border: 2px solid palevioletred;
-  color: palevioletred;
-  margin: 0 1em;
-  padding: 0.25em 1em;
 `
 
 /**

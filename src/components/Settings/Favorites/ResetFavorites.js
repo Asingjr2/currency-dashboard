@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {AppContext} from '../../AppProvider';
-import {fontSize2, redBoxShadow, color3} from '../../Shared/Styles';
+import {fontSize2, redBoxShadow} from '../../Shared/Styles';
 
 // standard colors used. 
 const ButtonStyled = styled.div`
