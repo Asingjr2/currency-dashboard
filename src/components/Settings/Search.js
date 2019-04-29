@@ -7,7 +7,7 @@ import {backgroundColor2, fontSize2} from '../Shared/Styles';
 
 const SearchGrid = styled.div`
   display: grid;
-  grid-template-columns: 250px 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 `
 
 const SearchInput = styled.input`
@@ -32,6 +32,12 @@ const ResetSearchListButton= styled.button`
   margin: 0 1em;
   padding: 0.25em 1em;
 `
+
+{/* <SearchInput onKeyUp={(event) =>
+  filterCoins(event, setFilteredCoins, coinList)} />
+<ResetSearchListButton onClick={() => setFilteredCoins(null)}>
+  RESET COIN LIST
+</ResetSearchListButton> */}
 
 /**
  * handleFilter grabs all coins from site than filters coins 
@@ -68,12 +74,29 @@ const Search = () => {
     <AppContext.Consumer>
       {({setFilteredCoins, coinList}) => 
         <SearchGrid>
-          <h3>Samus Search</h3>
-          <SearchInput onKeyUp={(event) =>
-            filterCoins(event, setFilteredCoins, coinList)} />
-          <ResetSearchListButton onClick={() => setFilteredCoins(null)}>
-            RESET COIN LIST
-          </ResetSearchListButton>
+        <div class="ui left corner labeled input">
+          <input type="text" 
+            placeholder="search coins" 
+            onKeyUp={(event) => filterCoins(event, setFilteredCoins, coinList)}
+            />
+          <div class="ui left corner label">
+            <i class="search icon"></i>
+          </div>
+        </div>
+       
+          <div></div>
+          <div></div>
+
+          <div class="ui corner labeled input">
+            <input 
+              type="text" 
+              value="Reset List"
+              onClick={() => setFilteredCoins(null)}
+              />
+            <div class="ui corner label">
+              <i class="undo icon"></i>
+            </div>
+          </div>
 
         </SearchGrid>
       }

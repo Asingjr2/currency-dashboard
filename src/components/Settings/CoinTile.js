@@ -1,6 +1,6 @@
 import React from 'react';
 import {AppContext} from '../AppProvider';
-import {SelectTile, DeleteTile, DisableTile} from '../Shared/Tile';
+import {SelectTile, DeleteTile, DisableTile, ViewOnlyTile} from '../Shared/Tile';
 import CoinHeaderGrid from './CoinHeaderGrid';
 import CoinImage from '../Shared/CoinImage';
 
@@ -18,13 +18,15 @@ const CoinTile = ({coinKey, topSection}) => {
   
   return (
     <AppContext.Consumer>
-      {({coinList, addCoin, removeCoin, inFavorites}) => {
+      {({coinList, addCoin, removeCoin, inFavorites, initialVisit}) => {
         let coin = coinList[coinKey];
 
         // logic to govern which button is displayed
         let TileClass = SelectTile;
         if(topSection) {
           TileClass = DeleteTile;
+        } else if(initialVisit) {
+          TileClass = ViewOnlyTile
         } else if(inFavorites(coinKey)){
           TileClass = DisableTile
         };

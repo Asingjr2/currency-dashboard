@@ -12,7 +12,7 @@ const CoinComponentWrapper = (props) => {
     if(!initialVisit && !prices) {
       return <div>LOADING COIN DATA</div>
     }
-    return <div> STUFF{props.children} </div>
+    return <div>{props.children}</div>
   }}
   </AppContext.Consumer>
   );

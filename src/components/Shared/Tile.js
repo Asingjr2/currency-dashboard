@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {subtleBoxShadow, lightBlueBackground, greenBoxShadow, redBoxShadow} from './Styles';
+import {subtleBoxShadow, lightBlueBackground, greenBoxShadow, redBoxShadow, yellowBoxShadow} from './Styles';
 
 export const Tile = styled.div`
   ${subtleBoxShadow}
@@ -18,10 +18,16 @@ export const DeleteTile = styled(Tile)`
 &:hover{
   cursor: pointer;
   ${redBoxShadow}
-
 }`
 
 export const DisableTile = styled(Tile)`
   pointer-events: none;
   opacity: 0.4
 `
+
+export const ViewOnlyTile = styled(Tile)`
+  &:hover{
+  cursor: pointer;
+  ${yellowBoxShadow}
+}`
+

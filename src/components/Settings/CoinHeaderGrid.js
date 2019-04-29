@@ -11,7 +11,7 @@ export const CoinSymbol = styled.div`
   justify-self: right
 `;
 
-// creating styled components that take in a component for additional formatting for a distince element
+// creating styled components that take in a component for additional formatting for a disticnt element
 const DeleteIcon = styled.div`
   justify-self: right;
   display: none;

@@ -47,7 +47,7 @@ function ControlButton({name}) {
 
 const Header = () => (
   <Bar>
-    <Logo>CryptoDashboard</Logo>
+    <Logo>CurrencyDashboard</Logo>
     <div />
     <ControlButton active name="dashboard"/> 
     <ControlButton name="settings" />
