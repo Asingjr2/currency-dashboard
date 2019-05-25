@@ -7,6 +7,7 @@ import Dashboard from './components/Dashboard';
 import Header from './components/Header';
 import Settings from './components/Settings';
 import Vidoes from './components/Youtube';
+import LogRegUser from './components/LogReg/LogReg';
 
 
 class App extends Component {
@@ -19,6 +20,7 @@ class App extends Component {
             <Settings/>
             <Dashboard />  
             <Vidoes />
+            <LogRegUser />
           </Content>
         </AppProvider>
       </AppLayout>

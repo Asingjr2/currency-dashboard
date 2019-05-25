@@ -52,6 +52,7 @@ const Header = () => (
     <ControlButton active name="dashboard"/> 
     <ControlButton name="coinlist" />
     <ControlButton name="videos" />
+    <ControlButton name="signin/signup" />
   </Bar>
   );
 
