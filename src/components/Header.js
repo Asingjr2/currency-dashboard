@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, {css} from 'styled-components';
 import {AppContext} from './AppProvider';
+import GoogleAuth from './Authentication/GoogleAuth';
 
 const Logo = styled.div`
   font-size: 2em;
@@ -53,6 +54,7 @@ const Header = () => (
     <ControlButton name="coinlist" />
     <ControlButton name="videos" />
     <ControlButton name="signin/signup" />
+    <GoogleAuth />
   </Bar>
   );
 
