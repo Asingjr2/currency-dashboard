@@ -9,7 +9,9 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 // creating store for redux with reducer, initials state, and middleware
-const store = createStore(() => [], {}, applyMiddleware(reduxThunk));
+const store = createStore(
+  reducers, applyMiddleware(reduxThunk)
+  );
 
 ReactDOM.render(
   <Provider store={store}>
