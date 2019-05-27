@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactHighcharts from 'react-highcharts';
-import {newHighChartConfig} from './HighCharts/main';
+import newHighChartConfig from './HighCharts/main';
 import chartTheme from './HighCharts/theme';
-import {Tile} from '../Shared/Tile';
-import {AppContext} from '../AppProvider';
+import { Tile } from '../Shared/Tile';
+import { AppContext } from '../AppProvider';
 import ChartSelectSpan from './ChartSelectSpan';
 
 ReactHighcharts.Highcharts.setOptions(chartTheme);

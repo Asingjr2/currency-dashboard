@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {AppContext} from '../AppProvider';
+import { AppContext } from '../AppProvider';
 import PriceTile from './PriceTile';
 
 const PriceGridStyled = styled.div`

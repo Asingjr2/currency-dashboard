@@ -40,7 +40,7 @@ function ControlButton({name}) {
         <ControlButtonElement 
         active={page===name}
         onClick={() => setPage(name)}
-        hidden={initialVisit && name === 'dashboard'}
+        hidden={(initialVisit && name === 'dashboard') || (initialVisit && name === 'videos')}
         >
           {Capitalize(name)}
         </ControlButtonElement>

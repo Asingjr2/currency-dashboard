@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Tile} from '../Shared/Tile';
-import {AppContext} from '../AppProvider';
+import { Tile } from '../Shared/Tile';
+import { AppContext } from '../AppProvider';
 import CoinImage from '../Shared/CoinImage';
-import {fontSizeBig} from '../Shared/Styles';
+import { fontSizeBig } from '../Shared/Styles';
 
 const TextCenterStyled = styled.div`
   text-align: center;

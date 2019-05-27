@@ -1,5 +1,21 @@
 import React from 'react';
 import { AppContext } from '../AppProvider';
+import styled from 'styled-components';
+
+const StyledMessage = styled.div`
+  height: 40px;
+  margin-top: 30px;
+  text-align: center;
+  color: white;
+  background-color: gold;
+  opacity: .8;
+  border-radius: 25px;
+  box-shadow: 10px 10px 5px grey;
+  padding: 10px;
+  &:hover{
+  cursor: pointer;
+  color: blue;
+}`
 
 // using ES6 syntax to destructure passed down state information from the provider
 // pulling initialVisit category from the passed donw state
@@ -9,9 +25,11 @@ const WelcomeMessage = ({ initialVisit }) => {
     <div>
       <AppContext.Consumer>
       {({ initialVisit }) => initialVisit ? 
-      <div> 
-        Welcome to CryptoDash, please select your favorite coins to begin.{''}
-      </div> : null 
+      <StyledMessage> 
+        <h3>
+          Welcome to CryptoDash, please select your favorite coins to start tracking on dashboard.
+        </h3>
+      </StyledMessage> : null 
       }
       </AppContext.Consumer>
     </div>

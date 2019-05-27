@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {lightBlueBackground} from '../Shared/Styles';
+import { lightBlueBackground } from '../Shared/Styles';
 
 const StyledFooter = styled.div`
   height: 75px;

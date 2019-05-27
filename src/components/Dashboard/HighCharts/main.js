@@ -1,4 +1,4 @@
-export function newHighChartConfig(historicalPricePoints) {
+const newHighChartConfig = (historicalPricePoints) => {
   return {
     title: {
       text: 'PRICE HISTORY'
@@ -43,3 +43,5 @@ export function newHighChartConfig(historicalPricePoints) {
     }
   };
 }
+
+export default newHighChartConfig;

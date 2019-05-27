@@ -15,7 +15,6 @@ class AppProvider extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      page: 'dashboard',
       setPage: this.setPage,
       ...this.savedSettings(),
       favorites: ['BTC'],
@@ -165,7 +164,7 @@ class AppProvider extends React.Component {
   savedSettings() {
     let cryptoDashData = JSON.parse(localStorage.getItem('cryptoDash'));
     if(!cryptoDashData) {
-      return {page : 'settings', initialVisit: true}
+      return {page : 'coinlist', initialVisit: true}
     }
     let {favorites, currentFavorite} = cryptoDashData;
     return {favorites, currentFavorite};
