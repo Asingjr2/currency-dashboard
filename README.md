@@ -4,12 +4,6 @@ Currency display app that allows users to check price of favorites and display u
 ```
 ***
 
-### Setup
-```
-To run program simply *npm run start* at root of folder.
-```
-***
-
 ###  Libraries and Documentation
 ```
 Key  libraries and associated documentation can be found below at:

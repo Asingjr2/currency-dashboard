@@ -15,6 +15,7 @@ class AppProvider extends React.Component {
   constructor(props){
     super(props);
     this.state = {
+      page: 'coinlist',
       setPage: this.setPage,
       ...this.savedSettings(),
       favorites: ['BTC'],

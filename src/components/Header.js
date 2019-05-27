@@ -51,7 +51,7 @@ function ControlButton({name}) {
 
 const Header = () => (
   <Bar>
-    <Logo><i class="dollar sign icon"></i>CurrencyCheck</Logo>
+    <Logo><i className="dollar sign icon"></i>CurrencyCheck</Logo>
     <ControlButton active name="dashboard"/> 
     <ControlButton name="coinlist" />
     <ControlButton name="videos" />

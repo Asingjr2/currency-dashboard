@@ -52,18 +52,18 @@ const Footer = () => (
       <StyledH4>Demo site was created to provide quick track to a users favorite cryptocurrncies and provide a way check popular Youtube videos.  To learn more about libraries for this application checkout links below.</StyledH4>
     </PaddedH4>
     <PaddedGrid>
-      <div class="ui grid">
-        <div class="four wide column" data-tooltip="CSS formatting library that allows great customization">
+      <div className="ui grid">
+        <div className="four wide column" data-tooltip="CSS formatting library that allows great customization">
           <StyledAnchor href="https://www.styled-components.com/">Styled Components</StyledAnchor>
         </div>
-        <div class="four wide column" data-tooltip="JS library that support single page apps and component level logic">
-          <StyledAnchor href="https://reactjs.org/">ReactJS</StyledAnchor>
-        </div>
-        <div class="four wide column" data-tooltip="HTML/CSS/JS library that contains custom CSS tags with greater functionaility.">
+        <div className="four wide column" data-tooltip="HTML/CSS/JS library that contains custom CSS tags with greater functionaility.">
           <StyledAnchor href="https://semantic-ui.com/">Semantic UI</StyledAnchor>
         </div>
-        <div class="four wide column" data-tooltip="Cryptocurrency website that tracks historic and past prices">
+        <div className="four wide column" data-tooltip="Cryptocurrency website that tracks historic and past prices">
           <StyledAnchor href="https://www.cryptocompare.com/">CryptoCompare</StyledAnchor>
+        </div>
+        <div className="four wide column" data-tooltip="Charting library for multiple data types">
+          <StyledAnchor href="www.npmjs.com/package/react-highcharts">HighCharts</StyledAnchor>
         </div>
       </div>
     </PaddedGrid>
