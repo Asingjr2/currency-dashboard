@@ -1,7 +1,6 @@
 import React from 'react';
 import styled, {css} from 'styled-components';
 import {AppContext} from './AppProvider';
-import GoogleAuth from './Authentication/GoogleAuth';
 
 const Logo = styled.div`
   font-size: 2em;
@@ -9,7 +8,7 @@ const Logo = styled.div`
 const Bar = styled.div `
   display: grid;
   margin-bottom: 30px;
-  grid-template-columns: 2fr auto 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
 `
 
 // need to review the passing of the props information
@@ -22,6 +21,10 @@ const ControlButtonElement = styled.div`
   ${props => props.hidden && css`
   display: none;
   `}
+  &:hover{
+  cursor: pointer;
+  color: orange;
+  }
 `
 
 function Capitalize(word) {
@@ -48,13 +51,10 @@ function ControlButton({name}) {
 
 const Header = () => (
   <Bar>
-    <Logo>CurrencyDashboard</Logo>
-    <div />
+    <Logo><i class="dollar sign icon"></i>CurrencyCheck</Logo>
     <ControlButton active name="dashboard"/> 
     <ControlButton name="coinlist" />
     <ControlButton name="videos" />
-    <ControlButton name="signin/signup" />
-    <GoogleAuth />
   </Bar>
   );
 

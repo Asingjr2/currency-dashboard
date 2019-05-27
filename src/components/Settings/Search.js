@@ -48,12 +48,12 @@ export const Search = () => {
     <AppContext.Consumer>
       {({setFilteredCoins, coinList}) => 
         <SearchGrid>
-        <div class="ui left corner labeled input large">
+        <div class="ui left corner labeled input large" data-tooltip="Search from hundreds of coins">
           <input type="text" 
             placeholder="search coins" 
             onKeyUp={(event) => filterCoins(event, setFilteredCoins, coinList)}
             />
-          <div class="ui left corner label">
+          <div class="ui left corner label" >
             <i class="search icon"></i>
           </div>
         </div>
@@ -61,7 +61,7 @@ export const Search = () => {
           <div></div>
           <div></div>
 
-          <div class="ui corner labeled input large">
+          <div class="ui corner labeled input large" data-tooltip="Reset filterd coin listing">
             <input 
               type="text" 
               value="Reset List"

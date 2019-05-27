@@ -30,7 +30,7 @@ const ConfirmFavorites = () => {
     <AppContext.Consumer>
       {({confirmFavorites}) => (
         <CenterDiv onClick={confirmFavorites}>
-          <ButtonStyled>
+          <ButtonStyled data-tooltip="Confirm changes to top 10 coins">
             CONFIRM YOUR FAVORITES
           </ButtonStyled>
         </CenterDiv>
