@@ -1,5 +1,5 @@
 import React from 'react';
-import {AppContext} from '../AppProvider';
+import { AppContext } from '../AppProvider';
 
 // displays page using consumer state.  Checking name of page against the children
 const Page = ({name, children}) => {

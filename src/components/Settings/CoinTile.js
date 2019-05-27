@@ -1,6 +1,6 @@
 import React from 'react';
-import {AppContext} from '../AppProvider';
-import {SelectTile, DeleteTile, DisableTile, ViewOnlyTile} from '../Shared/Tile';
+import { AppContext } from '../AppProvider';
+import { SelectTile, DeleteTile, DisableTile, ViewOnlyTile } from '../Shared/Tile';
 import CoinHeaderGrid from './CoinHeaderGrid';
 import CoinImage from '../Shared/CoinImage';
 

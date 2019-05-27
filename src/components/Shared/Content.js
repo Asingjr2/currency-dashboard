@@ -1,5 +1,5 @@
 import React from 'react';
-import {AppContext} from '../AppProvider';
+import { AppContext } from '../AppProvider';
 
 
 const CoinComponentWrapper = (props) => {

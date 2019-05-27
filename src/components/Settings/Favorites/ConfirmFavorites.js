@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import {AppContext} from '../../AppProvider';
-import {fontSize2, greenBoxShadow} from '../../Shared/Styles';
+import { AppContext } from '../../AppProvider';
+import { fontSize2, greenBoxShadow } from '../../Shared/Styles';
 
 // standard colors used. 
 const ButtonStyled = styled.div`
@@ -14,9 +14,8 @@ const ButtonStyled = styled.div`
   cursor: pointer;
   ${fontSize2};
   &:hover {
-    ${greenBoxShadow}
-  }
-`
+    ${ greenBoxShadow }
+  } `
 
 const CenterDiv = styled.div`
   display: grid;
@@ -37,6 +36,6 @@ const ConfirmFavorites = () => {
       )}
     </AppContext.Consumer>
   );
-};
+}
 
 export default ConfirmFavorites;

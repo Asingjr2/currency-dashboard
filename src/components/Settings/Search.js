@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import _ from 'lodash';
 import fuzzy from 'fuzzy';
-import {AppContext} from '../AppProvider';
+import { AppContext } from '../AppProvider';
 
 /** 
  * used to ensure even spacing between elements and

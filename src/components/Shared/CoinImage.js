@@ -1,6 +1,6 @@
 import React from 'react';
-import styled, {css} from 'styled-components';
-import {REACT_APP_CRYPTOCOMPARE_URL} from '../../config';
+import styled, { css } from 'styled-components';
+import { REACT_APP_CRYPTOCOMPARE_URL } from '../../config';
 
 const ImageStyled = styled.img`
   height: 50px;
