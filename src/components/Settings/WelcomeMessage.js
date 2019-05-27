@@ -27,7 +27,7 @@ const WelcomeMessage = ({ initialVisit }) => {
       {({ initialVisit }) => initialVisit ? 
       <StyledMessage> 
         <h3>
-          Welcome to CryptoDash, please select your favorite coins to start tracking on dashboard.
+          Welcome to CryptoDash, please confim your favorite coins to start tracking on dashboard and check out relevant videos.
         </h3>
       </StyledMessage> : null 
       }
