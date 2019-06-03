@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import {DeleteTile} from '../Shared/Tile';
+import PropTypes from 'prop-types';
+import { DeleteTile } from '../Shared/Tile';
 
 export const CoinHeaderStyled = styled.div`
   display: grid;
@@ -32,5 +33,11 @@ const CoinHeaderGrid = ({name, symbol, topSection}) => {
     </CoinHeaderStyled>
   );
 };
+
+CoinHeaderGrid.propTypes = {
+  name: PropTypes.string,
+  symbol: PropTypes.string,
+  topSection: PropTypes.bool
+}
 
 export default CoinHeaderGrid;

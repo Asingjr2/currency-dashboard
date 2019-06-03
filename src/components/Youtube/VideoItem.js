@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const VideoItem = ({video, onVideoSelect}) => {
+const VideoItem = ({ video, onVideoSelect }) => {
   return (
   <div className="item video-item"
-    onClick={() => onVideoSelect(video)}>
+    onClick={() => onVideoSelect(video)} key={video.etag}>
     <img className="ui image"
       src={video.snippet.thumbnails.medium.url} 
       alt={video.description} />

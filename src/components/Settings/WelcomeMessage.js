@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { AppContext } from '../AppProvider';
 import styled from 'styled-components';
 
@@ -35,5 +36,9 @@ const WelcomeMessage = ({ initialVisit }) => {
     </div>
   );
 };
+
+WelcomeMessage.propTypes = {
+  initialVisit: PropTypes.bool
+}
 
 export default WelcomeMessage;

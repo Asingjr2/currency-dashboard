@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { AppContext } from '../AppProvider';
 
 // displays page using consumer state.  Checking name of page against the children
@@ -15,4 +16,7 @@ const Page = ({name, children}) => {
   );
 };
 
+Page.propTypes = {
+  name: PropTypes.string.isRequired
+}
 export default Page;

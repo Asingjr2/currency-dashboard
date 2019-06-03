@@ -1,7 +1,6 @@
 import React from 'react';
 import { AppContext } from '../AppProvider';
 
-
 const CoinComponentWrapper = (props) => {
   return (
   <AppContext.Consumer>

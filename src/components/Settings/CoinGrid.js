@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import {AppContext} from '../AppProvider';
 import CoinTile from './CoinTile';
 
@@ -37,5 +38,9 @@ const CoinGrid = ({topSection}) => {
     </AppContext.Consumer>
     );
 };
+
+CoinGrid.propTypes = {
+  topSection: PropTypes.bool
+}
 
 export default CoinGrid;

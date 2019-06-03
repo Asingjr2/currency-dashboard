@@ -49,7 +49,7 @@ const PaddedGrid = styled.div`
 const Footer = () => (
   <StyledFooter>
     <PaddedH4>
-      <StyledH4>Demo site was created to provide quick track to a users favorite cryptocurrncies and provide a way check popular Youtube videos.  To learn more about libraries for this application checkout links below.</StyledH4>
+      <StyledH4>This demo site was created to provide a quick way to track cryptocurrency and research related youtube videos.To learn more about libraries used for this application checkout links below.</StyledH4>
     </PaddedH4>
     <PaddedGrid>
       <div className="ui grid">
@@ -68,6 +68,6 @@ const Footer = () => (
       </div>
     </PaddedGrid>
   </StyledFooter>
-)
+);
 
 export default Footer;

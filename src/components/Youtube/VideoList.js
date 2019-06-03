@@ -23,7 +23,6 @@ const VideoList = (props) => {
     <div>
       <VideoListItem 
         onVideoSelect={props.onVideoSelect}
-        key={video.etag} 
         video={video} 
       /> 
       <div className="ui inverted divider"></div>

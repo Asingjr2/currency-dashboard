@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled, {css} from 'styled-components';
 import {AppContext} from '../AppProvider';
 import {SelectTile} from '../Shared/Tile';
@@ -93,4 +94,8 @@ const PriceTileLayout = ({price, index}) => {
   );
 }
 
+PriceTileLayout.propTypes = {
+  price: PropTypes.object,
+  index: PropTypes.number
+}
 export default PriceTileLayout;

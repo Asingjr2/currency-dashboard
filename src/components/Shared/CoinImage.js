@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { REACT_APP_CRYPTOCOMPARE_URL } from '../../config';
 
@@ -22,5 +23,10 @@ const CoinImage = ({coin, spotlight}) => {
     />
   );
 };
+
+CoinImage.propTypes = {
+  coin: PropTypes.object.isRequired,
+  spotlight: PropTypes.bool
+}
 
 export default CoinImage;

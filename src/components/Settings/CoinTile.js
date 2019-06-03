@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { AppContext } from '../AppProvider';
 import { SelectTile, DeleteTile, DisableTile, ViewOnlyTile } from '../Shared/Tile';
 import CoinHeaderGrid from './CoinHeaderGrid';
@@ -15,7 +16,6 @@ function handleCoinClick(topSection, coinKey, addCoin, removeCoin) {
 }
 
 const CoinTile = ({coinKey, topSection}) => {
-  
   return (
     <AppContext.Consumer>
       {({coinList, addCoin, removeCoin, inFavorites, initialVisit}) => {
@@ -47,5 +47,10 @@ const CoinTile = ({coinKey, topSection}) => {
     </AppContext.Consumer>
   )
 };
+
+CoinTile.propTypes = {
+  coinKey: PropTypes.string.isRequired,
+  topSection: PropTypes.bool
+}
 
 export default CoinTile;

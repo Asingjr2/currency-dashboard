@@ -23,7 +23,7 @@ class SearchBar extends React.Component {
           <input 
             type="text" 
             placeholder="Search..." 
-            onChange={ this.onNewInput}
+            onChange={ this.onNewInput }
             value={this.state.term} 
             />
         </div>
